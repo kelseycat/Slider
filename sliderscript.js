@@ -14,10 +14,21 @@ var slides = images.length;
 
 
 function loadImages() {
+	//display the first image in the array in the display box
 	var display = document.getElementsByClassName("display")[0];
-	var strip = document.getElementsByClassName("strip")[0];
 	display.style.backgroundImage = "url('"+displayImage+"')";
-	strip.createElement('ul');
+
+	//this creates a ul node in the strip
+	var strip = document.getElementsByClassName("strip")[0];
+	var ul = document.createElement('ul');
+	strip.appendChild(ul);
+
+	//this creates the li nodes that live in the above ul
+	for (var i = 0; i <= 5; i++) {
+		var li = document.createElement('li');
+		li.style.backgroundImage = "url('"+images[i]+"')";
+		ul.appendChild(li);
+	};
 }
 
 // loop to create li elements based on array length
